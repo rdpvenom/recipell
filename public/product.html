@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essential Tee | UrbanThread</title>
+  <meta name="description" content="Essential Tee by UrbanThread: soft premium cotton blend t-shirt with modern fit and all-day comfort." />
+  <link rel="canonical" href="https://www.yourdomain.com/product.html" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <h1 class="logo">UrbanThread</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:40px 0;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=80" alt="Essential Tee product image" style="width:100%;border-radius:12px;object-fit:cover;min-height:360px;">
+      <div>
+        <h2>Essential Tee</h2>
+        <p style="color:#6b7280;">Premium cotton blend. Soft, breathable, and made for everyday wear.</p>
+        <p style="font-size:1.4rem;"><strong>$29.00</strong></p>
+
+        <label for="size">Size</label><br>
+        <select id="size" style="padding:10px;width:200px;margin:8px 0 16px;">
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select><br>
+
+        <button
+          class="btn"
+          onclick="addToCart('Essential Tee', 29, document.getElementById('size').value, 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=400&q=80')">
+          Add to Cart
+        </button>
+        <p id="msg" style="margin-top:12px;color:green;font-weight:600;"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <p>© 2026 UrbanThread Clothing</p>
+      <div>
+        <a href="return-policy.html">Returns</a>
+        <a href="shipping-policy.html">Shipping</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    function addToCart(name, price, size, image) {
+      const cart = JSON.parse(localStorage.getItem("cartItems") || "[]");
+      cart.push({ name, price, size, image, qty: 1 });
+      localStorage.setItem("cartItems", JSON.stringify(cart));
+      document.getElementById("msg").textContent = "Added to cart successfully!";
+    }
+  </script>
+</body>
+</html>
